@@ -1,30 +1,55 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="flex flex-col min-h-screen">
+    <header class="flex items-center border-b border-gray-600">
+      <router-link to="/profile" class="p-4 mr-3 text-green-500 text-2xl">
+        <i class="fas fa-user"></i>
+      </router-link>
+
+      <h1 class="text-white font-black text-xl">{{ $route.name }}</h1>
+    </header>
+
+    <main class="main flex-1 overflow-scroll">
+      <router-view />
+    </main>
+
+    <footer class="grid grid-cols-4 border-t border-gray-600">
+      <router-link
+        v-for="(route, i) in routes"
+        :key="i"
+        :to="route.path"
+        :class="`p-4 text-center text-2xl ${
+          route.name == $route.name ? 'text-green-500' : 'text-gray-300'
+        }`"
+      >
+        <i :class="route.iconClass"></i>
+      </router-link>
+    </footer>
   </div>
-  <router-view/>
 </template>
 
+<script>
+import { ref, onBeforeMount } from "vue";
+import { useRouter } from "vue-router";
+
+export default {
+  setup() {
+    const routes = ref([]);
+    const router = useRouter();
+
+    onBeforeMount(() => {
+      routes.value = router.options.routes.filter((r) => r.mainMenu);
+    });
+
+    return {
+      routes,
+    };
+  },
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.main {
+  height: 100%;
+  border: 3px dotted blue;
 }
 </style>
