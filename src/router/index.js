@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
+import Home from "@/views/Home.vue";
 
 const routes = [
   {
@@ -10,17 +10,17 @@ const routes = [
     mainMenu: true,
   },
   {
-    path: "/explore",
-    name: "Explore",
+    path: "/feed",
+    name: "Feed",
     component: Home,
     iconClass: "fas fa-search",
     mainMenu: true,
   },
   {
-    path: "/notifications",
-    name: "Notifications",
+    path: "/chat",
+    name: "Chat",
     component: Home,
-    iconClass: "fas fa-bell",
+    iconClass: "fal fa-comment",
     mainMenu: true,
   },
   {
@@ -31,16 +31,18 @@ const routes = [
     mainMenu: true,
   },
   {
+    path: "/profile",
+    name: "Profile",
+    component: Home,
+    iconClass: "fas fa-user",
+    mainMenu: true,
+  },
+  {
     path: "/logout",
     name: "Logout",
     component: Home,
     iconClass: "fas fa-sign-out",
     mainMenu: true,
-  },
-  {
-    path: "/profile",
-    name: "Profile",
-    component: Home,
   },
 ];
 
