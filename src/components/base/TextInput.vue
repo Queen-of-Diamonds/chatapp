@@ -14,23 +14,23 @@
         class="px-2 py-2 h-12 leading-normal block w-full text-gray-800 bg-white font-sans rounded-lg text-left appearance-none outline-none"
         :class="[
           {
-            'border-red-400': errors.length,
+            'border-red-400': false,
             'pl-12': withIcon === true,
           },
           classes,
         ]"
         :type="type"
-        :value="value"
-        @input="$emit('input', $event.target.value)"
+        :value="modelValue"
+        @input="updateValue($event.target.value)"
         @keydown="$emit('keydown', $event)"
         @blur="$emit('blur', $event)"
         @keyup="$emit('keyup', $event)"
       />
-      <div v-if="errors.length" class="text-red-600 mt-1 text-sm">
+      <!-- <div v-if="errors?.length" class="text-red-600 mt-1 text-sm">
         {{ errors[0] }}
-      </div>
+      </div> -->
 
-      <svg
+      <!-- <svg
         class="absolute text-red-600 fill-current"
         style="top: 12px; right: 12px"
         v-if="errors.length"
@@ -42,7 +42,7 @@
         <path
           d="M11.953,2C6.465,2,2,6.486,2,12s4.486,10,10,10s10-4.486,10-10S17.493,2,11.953,2z M13,17h-2v-2h2V17z M13,13h-2V7h2V13z"
         />
-      </svg>
+      </svg> -->
 
       <div
         class="absolute left-0 top-0 bottom-0 w-10 block ml-2"
@@ -55,36 +55,18 @@
 </template>
 
 <script>
-export default {
-  name: "TextInput",
+// For now it looks like you need to run both kinds of scripts.
+// Nice to know you can mix all three: 
+// - setup-function, 
+// - script-setup,
+// - and still options-api if you need it.
+// Currently that's the suggested way to keep `inheritAttrs: false`
+import { defineComponent } from 'vue'
+const TextInput = defineComponent({
+name: "TextInput",
 
   // More info: https://v3.vuejs.org/guide/component-attrs.html#attribute-inheritance
   inheritAttrs: false,
-
-  props: {
-    id: {
-      type: String,
-      required: true,
-    },
-    type: {
-      type: String,
-      default: "text",
-    },
-    value: String,
-    label: String,
-    errors: {
-      type: Array,
-      default: () => [],
-    },
-    withIcon: {
-      type: Boolean,
-      default: false,
-    },
-    bordered: {
-      type: Boolean,
-      default: true,
-    },
-  },
 
   methods: {
     focus() {
@@ -107,5 +89,27 @@ export default {
       };
     },
   },
-};
+})
+
+</script>
+
+
+<script setup>
+import { defineProps, defineEmits } from 'vue'
+
+const props = defineProps({
+  label: String,
+  value: String,
+  id: String,
+  type: String,
+  errors: String,
+  withIcon: Boolean,
+  bordered: Boolean,
+})
+
+const emit = defineEmits(['input'])
+
+function updateValue(value) {
+  emit('input', value)
+}
 </script>

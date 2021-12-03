@@ -1,3 +1,16 @@
+<script setup>
+import { ref, watch } from "vue"
+const email = ref("")
+watch("email", (email) => {
+  console.log("dvdb - email", email)
+})
+// function handleNewEmail(event) {
+//   console.log("dvdb - handleNewEmail - event", event)
+  
+// }
+</script>
+
+
 <template>
   <div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
@@ -17,7 +30,7 @@
           <div
             class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           >
-            <text-input label="Email" type="email" class="mt-1"></text-input>
+            <text-input v-model="email"  label="Email" id="user-email" type="email" class="mt-1"></text-input>
             <text-input
               label="Password"
               type="password"
