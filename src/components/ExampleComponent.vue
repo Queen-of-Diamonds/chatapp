@@ -87,12 +87,8 @@
 </template>
 
 <script>
-import TextInput from "@/src/Shared/TextInput.vue";
 
 export default {
-  components: {
-    TextInput,
-  },
   data() {
     return {
       errorEmail: "",
