@@ -58,14 +58,13 @@
 export default {
   name: "TextInput",
 
+  // More info: https://v3.vuejs.org/guide/component-attrs.html#attribute-inheritance
   inheritAttrs: false,
 
   props: {
     id: {
       type: String,
-      default() {
-        return `text-input-${this._uid}`;
-      },
+      required: true,
     },
     type: {
       type: String,
