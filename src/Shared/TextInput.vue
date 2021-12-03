@@ -58,6 +58,7 @@
 export default {
   name: "TextInput",
 
+  // More info: https://v3.vuejs.org/guide/component-attrs.html#attribute-inheritance
   inheritAttrs: false,
 
   props: {
