@@ -63,9 +63,7 @@ export default {
   props: {
     id: {
       type: String,
-      default() {
-        return `text-input-${this._uid}`;
-      },
+      required: true,
     },
     type: {
       type: String,
