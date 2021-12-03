@@ -1,18 +1,7 @@
 <script setup>
-// import BaseButton from "@/components/baseComponents/BaseButton.vue";
-// import BaseTextInput from "@/components/baseComponents/BaseTextInput.vue";
-
 const signIn = () => {
   console.log("Want to sign in");
 };
-
-// const email = () => {
-//   console.log("enter email address");
-// };
-
-// const password = () => {
-//   console.log("enter password");
-// };
 </script>
 
 <template>
