@@ -1,13 +1,18 @@
 <script setup>
-import { ref, watch } from "vue"
+import { ref, watchEffect } from "vue"
 const email = ref("")
-watch("email", (email) => {
-  console.log("dvdb - email", email)
-})
-// function handleNewEmail(event) {
-//   console.log("dvdb - handleNewEmail - event", event)
+// watchEffect(() => )
+
+function handleNewEmail(event) {
+  email.value = event  
+  console.log("dvdb - handleNewEmail - event", event)
+}
+
+function handleSubmit() {
+  const email = email.value
+  console.log("dvdb - handleSubmit - email", email)
   
-// }
+}
 </script>
 
 
@@ -30,7 +35,7 @@ watch("email", (email) => {
           <div
             class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           >
-            <text-input v-model="email"  label="Email" id="user-email" type="email" class="mt-1"></text-input>
+            <text-input  :value="email" @input="handleNewEmail"  label="Email" id="user-email" type="email" class="mt-1"></text-input>
             <text-input
               label="Password"
               type="password"

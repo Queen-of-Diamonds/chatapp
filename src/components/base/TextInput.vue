@@ -20,7 +20,7 @@
           classes,
         ]"
         :type="type"
-        :value="modelValue"
+        :value="value"
         @input="updateValue($event.target.value)"
         @keydown="$emit('keydown', $event)"
         @blur="$emit('blur', $event)"
@@ -69,9 +69,7 @@ name: "TextInput",
   inheritAttrs: false,
 
   methods: {
-    focus() {
-      this.$refs.input.focus();
-    },
+
     select() {
       this.$refs.input.select();
     },
@@ -80,22 +78,22 @@ name: "TextInput",
     },
   },
 
-  computed: {
-    classes() {
-      return {
-        "border-2 focus:border-blue-600 focus:border-blue-600":
-          this.bordered === true,
-        "border bg-gray-200 focus:bg-white": this.bordered === false,
-      };
-    },
-  },
+  // computed: {
+  //   classes() {
+  //     return {
+  //       "border-2 focus:border-blue-600 focus:border-blue-600":
+  //         this.bordered === true,
+  //       "border bg-gray-200 focus:bg-white": this.bordered === false,
+  //     };
+  //   },
+  // },
 })
 
 </script>
 
 
 <script setup>
-import { defineProps, defineEmits } from 'vue'
+import { defineProps, defineEmits, computed } from 'vue'
 
 const props = defineProps({
   label: String,
@@ -106,10 +104,24 @@ const props = defineProps({
   withIcon: Boolean,
   bordered: Boolean,
 })
+console.log("dvdb - props", props.bordered)
 
 const emit = defineEmits(['input'])
 
 function updateValue(value) {
   emit('input', value)
 }
+
+function focus() {
+  this.$refs.input.focus();
+}
+
+const classes = computed(() => {
+  return {
+        "border-2 focus:border-blue-600 focus:border-blue-600":
+          props.bordered === true,
+        "border bg-gray-200 focus:bg-white": props.bordered === false,
+      };
+})
+
 </script>
