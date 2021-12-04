@@ -1,6 +1,11 @@
 <template>
   <div class="min-h-full flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-    <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <!-- Add router-view to be able to navigate. 
+    TODO extract the login from here to a login route. 
+    Good excercise in understanding both. -->
+    <router-view></router-view>
+
+    <!-- <div class="sm:mx-auto sm:w-full sm:max-w-md">
       <img
         class="mx-auto h-12 w-auto"
         src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
@@ -9,9 +14,9 @@
       <h2 class="mt-6 text-center text-3xl font-extrabold text-white">
         Sign in to your account
       </h2>
-    </div>
+    </div> -->
 
-    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <!-- <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
       <div class="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
         <form class="space-y-6" action="#" method="POST">
           <div
@@ -133,6 +138,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
