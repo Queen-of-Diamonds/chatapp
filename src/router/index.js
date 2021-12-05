@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "@/views/Home.vue";
+import DylanSandBox01 from "@/views/DylanSandBox01.vue";
 
 const routes = [
   {
@@ -8,6 +9,11 @@ const routes = [
     component: Home,
     iconClass: "fas fa-home",
     mainMenu: true,
+  },
+  {
+    path: "/dylan-sandbox",
+    name: "DylanSandbox",
+    component: DylanSandBox01,
   },
   {
     path: "/feed",
