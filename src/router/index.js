@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "@/views/Home.vue";
 import DylanSandBox01 from "@/views/DylanSandBox01.vue";
+import Conversation from "@/views/Conversation.vue";
+import ChristieSandboxChat from "@/views/ChristieSandboxChat.vue";
 
 const routes = [
   {
@@ -14,6 +16,16 @@ const routes = [
     path: "/dylan-sandbox",
     name: "DylanSandbox",
     component: DylanSandBox01,
+  },
+  {
+    path: "/conversation",
+    name: "Conversation",
+    component: Conversation,
+  },
+  {
+    path: "/christie-sandbox-chat",
+    name: "ChristieSandboxChat",
+    component: ChristieSandboxChat,
   },
   {
     path: "/feed",

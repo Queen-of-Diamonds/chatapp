@@ -31,6 +31,7 @@ See here for more on the speech bubble css: https://codingislove.com/css-speech-
 TODO @christie: that blue colour is repeated often, so let's turn that into a css dynamic variable
 at the top here, standing by to be changed by the props.
 */
+
 .box {
   /* Cristie, this width is something you'll likely want to play with to work with your ui. */
   width: 30%;
