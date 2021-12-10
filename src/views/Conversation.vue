@@ -19,10 +19,8 @@
         v-model="messageText"
         placeholder="Enter your message"
       />
-      <base-button
-       @click="sendMessage">Send message</base-button>
-             <base-button
-       @click="logMessages">Dev: log messages</base-button>
+      <base-button @click="sendMessage">Send message</base-button>
+      <base-button @click="logMessages">Dev: log messages</base-button>
     </div>
     </div>
 </template>
@@ -134,4 +132,12 @@ export default {
     margin-left: 5px;
     cursor: pointer;
   }
+  .button {
+  transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
 </style>
