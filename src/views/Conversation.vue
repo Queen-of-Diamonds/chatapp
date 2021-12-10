@@ -13,13 +13,14 @@
         </div>
       </div>
     </div>
-    <div class="input-container">
+    <div class="flex">
       <input
         @keyup.enter="sendMessage"
         v-model="messageText"
         placeholder="Enter your message"
       />
-      <button @click="sendMessage">Send message</button>
+      <base-button
+       @click="sendMessage">Send message</base-button>
     </div>
     </div>
 </template>
