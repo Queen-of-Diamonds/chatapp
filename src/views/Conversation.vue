@@ -21,6 +21,8 @@
       />
       <base-button
        @click="sendMessage">Send message</base-button>
+             <base-button
+       @click="logMessages">Dev: log messages</base-button>
     </div>
     </div>
 </template>
@@ -35,6 +37,19 @@ export default {
             isSignedInUser: false
         }
     },
+    methods: {
+      sendMessage() {
+        const { messageText } = this
+        console.log("dvdb - sendMessage - message", messageText)
+
+        // send message obj to db
+
+        // on success log out the returned success message from Firebase
+      },
+      logMessages() {
+        // Get all messages from Firebase, and log it.
+      }
+    }
 }
 </script>
 
