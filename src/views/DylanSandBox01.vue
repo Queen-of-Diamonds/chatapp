@@ -11,9 +11,11 @@
 
 <script setup>
 import { onMounted } from "vue";
-import { ref, set, get, onValue } from "firebase/database";
+import SpeechBubble from "@/components/shared/SpeechBubble.vue"
 
+import { ref, set, get, onValue } from "firebase/database";
 import db from "@/db.js";
+
 
 let count = 0;
 async function createMessage({ id, message="Automessage here" }) {
