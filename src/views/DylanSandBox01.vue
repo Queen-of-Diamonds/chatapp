@@ -2,7 +2,7 @@
   <div class="grid h-full w-full">
     <div class="header border-t-3 border-dashed border-black">One</div>
     <div class="main border-t-3 border-dashed border-black">
-      <speech-bubble bubbleStyle="sb1" bubbleColour="#00bfb6"
+      <!-- <speech-bubble bubbleStyle="sb1" bubbleColour="#00bfb6"
         >I'm a userz speech bubble</speech-bubble
       >
       <speech-bubble bubbleStyle="sb2" bubbleColour="#51884b"
@@ -10,47 +10,31 @@
       >
       <speech-bubble bubbleStyle="sb2" bubbleColour="#51884b"
         >I'm a friend speech bubble</speech-bubble
-      >
-      <speech-bubble bubbleStyle="sb1" bubbleColour="#00bfb6"
-        >I'm a userz speech bubble</speech-bubble
+      > -->
+      <speech-bubble v-for="userMessage in userMessages" :key="userMessage.id" bubbleStyle="sb1" bubbleColour="#00bfb6"
+        >{{userMessage.content}}</speech-bubble
       >
     </div>
     <div class="sidebar border-t-3 border-dashed border-black">Three</div>
     <div class="footer border-t-3 border-dashed border-black">
-      <base-button @click="createMessage">test db add</base-button>
+      <base-button @click="sendMessage('Christie', 'Hi Christie')">test db add</base-button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, ref } from "vue";
 import SpeechBubble from "@/components/shared/SpeechBubble.vue"
-
-import { ref, set, get, onValue } from "firebase/database";
 import db from "@/db.js";
+import { createMessage, watchMessages } from '@/api.js'
 
-
+const userMessages = ref([])
 let count = 0;
-async function createMessage({ id, message = "Automessage here" }) {
-  const now = new Date();
-  count++;
-  /**
-  Using set() overwrites data at the specified location, including any child nodes.
-  See: https://firebase.google.com/docs/database/web/read-and-write
-  */
-  return await set(ref(db, `messages/${count}`), {
-    id: `xyz-${count}`,
-    content: message,
-    time: now.toISOString(),
-    timeUnix: now.getTime(),
-  });
-}
+watchMessages(userMessages.value)
 
-const messagesRef = ref(db, `messages/`);
-onValue(messagesRef, (snapshot) => {
-  const data = snapshot.val();
-  console.log("dvdb - onValue - data", data);
-});
+function sendMessage(user, autoMessage) {
+  createMessage({autoMessage, user})
+}
 
 onMounted(async () => {
   // TODO Dylan: flesh this out into
