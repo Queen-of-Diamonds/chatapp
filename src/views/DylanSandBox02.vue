@@ -19,6 +19,8 @@ const content = ref(`
     Normal text with a new line now:
     - maybe bullets?
 `)
+
+
 </script>
 
 <style lang="scss" scoped>

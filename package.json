@@ -11,7 +11,7 @@
     "@cometchat-pro/chat": "^3.0.3",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "core-js": "^3.6.5",
-    "firebase": "^9.5.0",
+    "firebase": "^9.6.1",
     "markdown-it-vue": "^1.1.6",
     "vue": "^3.0.0",
     "vue-router": "^4.0.12",
