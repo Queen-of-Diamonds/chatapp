@@ -18,6 +18,7 @@
     <div class="sidebar border-t-3 border-dashed border-black">Three</div>
     <div class="footer border-t-3 border-dashed border-black">
       <base-button @click="sendMessage('Christie', 'Hi Christie')">test db add</base-button>
+      <base-button @click="deleteAllMessages()">delete all messages</base-button>
     </div>
   </div>
 </template>
@@ -25,16 +26,20 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import SpeechBubble from "@/components/shared/SpeechBubble.vue"
+// import { ref, set, get, onValue, remove } from "firebase/database";
+
+
 import db from "@/db.js";
 import { createMessage, watchMessages } from '@/api.js'
 
 const userMessages = ref([])
 let count = 0;
-watchMessages(userMessages.value)
+watchMessages(userMessages)
 
 function sendMessage(user, autoMessage) {
   createMessage({autoMessage, user})
 }
+
 
 onMounted(async () => {
   // TODO Dylan: flesh this out into
