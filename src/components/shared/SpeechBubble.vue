@@ -15,7 +15,6 @@ const props = defineProps({
         type: String,
         default: "#00bfb6"
     }
-
 })
 
 const { bubbleColour } = toRefs(props);
