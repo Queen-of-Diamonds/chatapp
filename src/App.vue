@@ -1,6 +1,6 @@
 
 <template>
-  <div class="flex flex-col h-screen justify-center py-12">
+  <div class="flex flex-col h-screen justify-center">
     <!-- Add router-view to be able to navigate. 
     TODO extract the login from here to a login route. 
     Good excercise in understanding both. -->

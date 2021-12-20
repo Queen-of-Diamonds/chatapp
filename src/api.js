@@ -20,7 +20,7 @@ export async function deleteAllMessages() {
 export async function createMessage({
   id,
   user,
-  message = "Automessage here",
+  message = "Message",
 }) {
   const now = new Date();
   const nowUnix = now.getTime();
