@@ -60,11 +60,14 @@ function sendMessage(user, message) {
 }
 
 .header {
-  grid-area: header;
-  background-color: #5f9ea0;
-  margin-bottom: 5px;
-  border: 4px dotted blue;
+    grid-area: header;
+    background-color: #5f9ea0;
+    margin-bottom: 5px;
+    border: 4px dotted blue;
+    height: 400px;
+    overflow-y: scroll;
 }
+
 .main {
   grid-area: main;
   background-color: #fff;
