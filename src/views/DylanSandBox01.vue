@@ -18,7 +18,7 @@
     <div class="sidebar border-t-3 border-dashed border-black">Three</div>
     <div class="footer border-t-3 border-dashed border-black">
       <base-button @click="sendMessage('Christie', 'Hi Christie')">test db add</base-button>
-      <base-button @click="deleteAllMessages()">delete all messages</base-button>
+      <base-button @click="deleteAllMessages">delete all messages</base-button>
     </div>
   </div>
 </template>
@@ -30,7 +30,7 @@ import SpeechBubble from "@/components/shared/SpeechBubble.vue"
 
 
 import db from "@/db.js";
-import { createMessage, watchMessages } from '@/api.js'
+import { createMessage, watchMessages, deleteAllMessages } from '@/api.js'
 
 const userMessages = ref([])
 let count = 0;

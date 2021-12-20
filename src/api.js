@@ -1,14 +1,17 @@
-import { ref, set, get, onValue } from "firebase/database";
+import { ref, set, push, get, onValue, remove } from "firebase/database";
 import db from "@/db.js";
 
+const messagesRef = ref(db, `messages/`);
 export async function watchMessages(vueReferenceObject) {
-  const messagesRef = ref(db, `messages/`);
-
   onValue(messagesRef, (snapshot) => {
     const data = snapshot.val();
     console.log("dvdb - onValue - data", data);
     vueReferenceObject.value = data;
   });
+}
+
+export async function deleteAllMessages() {
+  remove(messagesRef);
 }
 
 /**
@@ -22,7 +25,7 @@ export async function createMessage({
   const now = new Date();
   const nowUnix = now.getTime();
   try {
-    await set(ref(db, `messages/${String(nowUnix)}`), {
+    await push(messagesRef, {
       id: String(nowUnix), // Leaves the option open to use id's with letters later.
       content: message,
       time: now.toISOString(),
