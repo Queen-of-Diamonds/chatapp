@@ -45,7 +45,7 @@ let count = 0;
 watchMessages(userMessages);
 
 function sendMessage(user, message) {
-  createMessage({ message, user });
+  createMessage({message, user})
 }
 </script>
 
