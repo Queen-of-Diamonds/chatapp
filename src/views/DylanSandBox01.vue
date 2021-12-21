@@ -1,5 +1,5 @@
 <template>
-  <!-- <div class="grid h-full w-full"> -->
+  <div class="card-layout h-full">
     <messages-card>
       <div class="header">
         <speech-bubble
@@ -28,7 +28,7 @@
         </div>
       </div>
     </messages-card>
-  <!-- </div> -->
+  </div>
 </template>
 
 <script setup>
@@ -50,6 +50,12 @@ function sendMessage(user, message) {
 </script>
 
 <style>
+.card-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .speech-bubbles {
   height: 80%;
   border: 2px dotted blue;
