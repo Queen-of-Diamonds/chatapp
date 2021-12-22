@@ -1,17 +1,17 @@
 <template>
-  <div class="container p-3 bg-white">
-    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-    <div class="input mt-1">
-      <input v-model="message" class="shadow-sm h-10 p-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" placeholder="Your message here" />
+  <div class="container flex flex-row items-center justify-center bg-white">
+    <label for="user" class="block text-sm font-medium text-gray-700"></label>
+    <div class="input">
+      <input v-model="message" class="shadow-sm h-10 p-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-700 rounded-md" placeholder="Your message here" />
     </div>
     <div class="button">
-      <button @click="sendMessage('Christie', message)">Click Me</button>
+      <button @click="sendMessage('Christie', message)"><i class="fas fa-paper-plane fa-2x"></i></button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, watch } from "vue";
+import { ref, watch, } from "vue";
 
 const message = ref(null);
 watch(message, (newVal) => {
@@ -28,8 +28,8 @@ function sendMessage(user, message) {
 
 <style>
 .container {
-  width: 300px;
-  height: 300px;
+  width: 600px;
+  height: 600px;
   display: grid;
 }
 
@@ -45,16 +45,19 @@ function sendMessage(user, message) {
 
 .button {
   background-color: #fa8072;
-  display: flex;
-  justify-content: center;
+  border: none;
+  color: white;
+  padding: 20px;
   text-align: center;
-  font-size: 20px;
-  margin: auto;
-  padding: 10px;
-  border-radius: 12px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 50%;
 }
 
 .button:hover {
   background-color: #ffa07a;
 }
+
 </style>
