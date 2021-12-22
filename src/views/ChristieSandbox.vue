@@ -1,21 +1,36 @@
 <template>
-<div class="container"> 
-  <div class="input">
-    <input type="text" placeholder="text" />
+  <div class="container">
+    <div class="input">
+      <input v-model="message" />
     </div>
-  <div class="button">
-    <button>Click Me</button>
-  </div>
+    <div class="button">
+      <button @click="sendMessage('Christie', message)">Click Me</button>
+    </div>
   </div>
 </template>
 
+<script setup>
+import { ref, watch } from "vue";
+
+const message = ref("Add message here");
+watch(message, (newVal) => {
+  console.log("🚀 ~ file: ChristieSandbox.vue ~ line 17 ~ watch ~ newVal", newVal)
+})
+
+function sendMessage(user, message) {
+  console.log(
+    "🚀 ~ file: ChristieSandbox.vue ~ line 18 ~ sendMessage ~ message",
+    message
+  );
+}
+</script>
 
 <style>
-.container {  
-width: 300px;  
-height: 300px;    
-display: grid;  
-}  
+.container {
+  width: 300px;
+  height: 300px;
+  display: grid;
+}
 
 .input {
   position: relative;
@@ -27,18 +42,17 @@ display: grid;
 }
 
 .button {
-  background-color: #FA8072;
+  background-color: #fa8072;
   display: flex;
   justify-content: center;
   text-align: center;
-  font-size: 20px;  
-  margin: auto;  
+  font-size: 20px;
+  margin: auto;
   padding: 10px;
   border-radius: 12px;
 }
 
 .button:hover {
-  background-color: #FFA07A;
-
+  background-color: #ffa07a;
 }
 </style>
