@@ -26,6 +26,7 @@ const routes = [
     path: "/christie-sandbox",
     name: "ChristieSandbox",
     component: ChristieSandbox,
+    iconClass: "fas fa-paper-plane",
   },
   {
     path: "/feed",
