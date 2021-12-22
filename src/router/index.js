@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from "@/views/Home.vue";
 import DylanSandBox01 from "@/views/DylanSandBox01.vue";
 import Conversation from "@/views/Conversation.vue";
-import ChristieSandboxChat from "@/views/ChristieSandboxChat.vue";
+import ChristieSandbox from "@/views/ChristieSandbox.vue";
 
 const routes = [
   {
@@ -23,9 +23,9 @@ const routes = [
     component: Conversation,
   },
   {
-    path: "/christie-sandbox-chat",
-    name: "ChristieSandboxChat",
-    component: ChristieSandboxChat,
+    path: "/christie-sandbox",
+    name: "ChristieSandbox",
+    component: ChristieSandbox,
   },
   {
     path: "/feed",
