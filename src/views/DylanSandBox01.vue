@@ -19,10 +19,11 @@
       </div>
       <div class="footer">
         <div class="input-message flex">
-          <div class="input mt-1">
+          <div class="input m-2 h-10">
             <input
               v-model="message"
-              class="shadow-sm h-10 p-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
+              style="background-color: #D3D3D3;"
+              class="shadow-sm h-14 p-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
               placeholder="Your message here"
             />
           </div>
@@ -73,14 +74,17 @@ function sendMessage(user, message) {
 }
 
 .input-message {
-  border: 2px dotted green;
+  /* border: 2px dotted green; */
+  margin: 5px;
+  padding: 10px;
+  background-color: orange;
 }
 
 .header {
   grid-area: header;
   background-color: #5f9ea0;
   margin-bottom: 5px;
-  border: 4px dotted blue;
+  /* border: 4px dotted blue; */
   height: 400px;
   overflow-y: scroll;
 }
@@ -95,7 +99,6 @@ function sendMessage(user, message) {
 }
 .footer {
   grid-area: footer;
-  background-color: #5f9ea0;
 }
 
 .grid {
