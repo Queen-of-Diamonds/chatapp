@@ -27,38 +27,35 @@
             />
           </div>
           <base-button @click="sendMessage('Christie', message)">
-            test db add
+            <i style="color: white" class="h-4 fas fa-paper-plane fa-3x"></i>
           </base-button>
-          <font-awesome-icon class="w-10" :icon="['fas', 'faPhone']" />
-          <!-- <base-button @click="deleteAllMessages"
-            >delete all messages</base-button
-          > -->
         </div>
       </div>
     </messages-card>
   </div>
 </template>
-
 <script setup>
+/** For more on fontawesome icons see: https://fontawesome.com/v5.15/icons?d=gallery&p=2 */
 import { onMounted, ref, watch } from "vue";
 import SpeechBubble from "@/components/shared/SpeechBubble.vue";
 import MessagesCard from "@/components/MessagesCard.vue";
-// import { ref, set, get, onValue, remove } from "firebase/database";
 
-import db from "@/db.js";
 import { createMessage, watchMessages, deleteAllMessages } from "@/api.js";
 
 const message = ref(null);
 watch(message, (newVal) => {
-  console.log("🚀 ~ file: ChristieSandbox.vue ~ line 17 ~ watch ~ newVal", newVal)
-})
+  console.log(
+    "🚀 ~ file: ChristieSandbox.vue ~ line 17 ~ watch ~ newVal",
+    newVal
+  );
+});
 
 const userMessages = ref([]);
 let count = 0;
 watchMessages(userMessages);
 
 function sendMessage(user, message) {
-  console.log("dvdb - sendMessage - message", message)
+  console.log("dvdb - sendMessage - message", message);
   createMessage({ message, user });
 }
 </script>
