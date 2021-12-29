@@ -15,7 +15,6 @@
     "core-js": "^3.6.5",
     "firebase": "^9.6.1",
     "markdown-it-vue": "^1.1.6",
-    "si-grenoble": "^0.6.0",
     "vue": "^3.0.0",
     "vue-router": "^4.0.12",
     "vuemoji-picker": "0.0.7",
