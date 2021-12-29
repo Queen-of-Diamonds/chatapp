@@ -13,7 +13,7 @@
           v-for="userMessage in userMessages"
           :key="userMessage.id"
           bubbleStyle="sb2"
-          bubbleColour="#00bf56"
+          bubbleColour="#D3D3D3"
           >{{ userMessage.content }}</speech-bubble
         >
       </div>
@@ -22,7 +22,7 @@
           <div class="input m-2 h-10">
             <input
               v-model="message"
-              style="background-color: #D3D3D3;"
+              style="background-color: #d3d3d3"
               class="shadow-sm h-14 p-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
               placeholder="Your message here"
             />
@@ -59,6 +59,13 @@ function sendMessage(user, message) {
   console.log("dvdb - sendMessage - message", message);
   createMessage({ message, user });
 }
+
+function handleEmojiClicked(event) {
+  console.log(
+    "🚀 ~ file: DylanSandBox01.vue ~ line 68 ~ handleEmojiClicked ~ event",
+    event
+  );
+}
 </script>
 
 <style>
@@ -75,15 +82,16 @@ function sendMessage(user, message) {
 
 .input-message {
   /* border: 2px dotted green; */
-  margin: 5px;
-  padding: 10px;
-  background-color: orange;
+  float: left;
+  /* background-color: orange; */
 }
 
 .header {
   grid-area: header;
   background-color: #5f9ea0;
   margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
   /* border: 4px dotted blue; */
   height: 400px;
   overflow-y: scroll;
