@@ -1,10 +1,17 @@
 <template>
   <div class="textarea-emoji-picker">
+    <textarea
+      ref="textarea"
+      class="textarea"
+      :value="value"
+      @input="$emit('input', $event.target.value)"
+    ></textarea>
     <picker
       v-show="showEmojiPicker"
       title="Pick your emoji..."
+      :data="emojiIndex"
       emoji="point_up"
-      @select="addEmoji"
+      @select="showEmoji"
     />
     <span
       class="emoji-trigger"
@@ -18,19 +25,18 @@
         />
       </svg>
     </span>
-    <textarea
-      ref="textarea"
-      class="textarea"
-      :value="value"
-      @input="$emit('input', $event.target.value)"
-    ></textarea>
   </div>
 </template>
 
 <script>
-import { Picker } from "emoji-mart-vue";
+import data from "emoji-mart-vue-fast/data/all.json";
+import "emoji-mart-vue-fast/css/emoji-mart.css";
+
+import { Picker, EmojiIndex } from "emoji-mart-vue-fast/src";
+let emojiIndex = new EmojiIndex(data);
 
 export default {
+  name: "TextareaEmojiPicker",
   components: { Picker },
   props: {
     value: {
@@ -40,12 +46,23 @@ export default {
   },
   data() {
     return {
-      showEmojiPicker: false,
+      showEmojiPicker: true,
+      emojiIndex: emojiIndex,
+      emojisOutput: "",
     };
   },
+  watch: {
+    emojisOutput(newValue) {
+      console.log(
+        "🚀 ~ file: TextareaEmojiPicker.vue ~ line 56 ~ emojisOutput ~ newValue",
+        newValue
+      );
+    },
+  },
   methods: {
-    toggleEmojiPicker() {
+    toggleEmojiPicker(emoji) {
       this.showEmojiPicker = !this.showEmojiPicker;
+      this.emojisOutput = this.emojisOutput + emoji.native;
     },
     addEmoji(emoji) {
       const textarea = this.$refs.textarea;
