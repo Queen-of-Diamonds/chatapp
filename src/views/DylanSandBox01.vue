@@ -27,6 +27,9 @@
               placeholder="Your message here"
             />
           </div>
+          <div class="home-page">
+            <textarea-emoji-picker />
+          </div>
           <base-button @click="sendMessage('Christie', message)">
             <i style="color: white" class="h-4 fas fa-paper-plane fa-3x"></i>
           </base-button>
@@ -35,11 +38,13 @@
     </messages-card>
   </div>
 </template>
+
 <script setup>
 /** For more on fontawesome icons see: https://fontawesome.com/v5.15/icons?d=gallery&p=2 */
 import { onMounted, ref, watch } from "vue";
 import SpeechBubble from "@/components/shared/SpeechBubble.vue";
 import MessagesCard from "@/components/MessagesCard.vue";
+import TextareaEmojiPicker from "@/components/TextareaEmojiPicker";
 
 import { createMessage, watchMessages, deleteAllMessages } from "@/api.js";
 
@@ -84,6 +89,16 @@ function handleEmojiClicked(event) {
   /* border: 2px dotted green; */
   float: left;
   /* background-color: orange; */
+}
+
+.home-page {
+  padding-top: 50px;
+}
+
+.textarea-emoji-picker {
+  position: relative;
+  width: 100px;
+  margin: 0 auto;
 }
 
 .header {
