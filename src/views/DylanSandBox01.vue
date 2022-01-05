@@ -28,7 +28,7 @@
             />
           </div>
           <div class="home-page">
-            <textarea-emoji-picker />
+            <textarea-emoji-picker @input="handleEmojiClicked" />
           </div>
           <base-button @click="sendMessage('Christie', message)">
             <i style="color: white" class="h-4 fas fa-paper-plane fa-3x"></i>
@@ -65,11 +65,8 @@ function sendMessage(user, message) {
   createMessage({ message, user });
 }
 
-function handleEmojiClicked(event) {
-  console.log(
-    "🚀 ~ file: DylanSandBox01.vue ~ line 68 ~ handleEmojiClicked ~ event",
-    event
-  );
+function handleEmojiClicked({ native }) {
+  message.value += native;
 }
 </script>
 

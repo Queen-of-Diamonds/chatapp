@@ -13,8 +13,7 @@
         title="Pick your emoji..."
         :data="emojiIndex"
         set="twitter"
-        
-        @select="showEmoji"
+        @select="addEmoji"
       />
     </div>
 
@@ -34,7 +33,7 @@
           />
         </svg>
       </span>
-      <p>{{ outputValueOnEnter }}</p>
+      <!-- <p>{{ outputValueOnEnter }} output</p> -->
     </div>
   </div>
 </template>
@@ -64,17 +63,14 @@ export default {
   },
 
   methods: {
-    showEmoji(emoji) {
-      this.emojisOutput = this.emojisOutput + emoji.native;
-      this.addEmoji(emoji);
-    },
     toggleEmojiPicker() {
       this.showEmojiPicker = !this.showEmojiPicker;
     },
     addEmoji(emoji) {
-      this.value = this.value + emoji.native
-            console.log("🚀 ~ file: App.vue ~ line 69 ~ showEmoji ~ emoji", emoji)
-      this.toggleEmojiPicker()
+      this.$emit('input', emoji)
+      // console.log("dvdb - addEmoji - emoji", emoji)
+      // this.value = this.value + emoji.native;
+      // this.toggleEmojiPicker();
     },
     submit(e) {
       this.outputValueOnEnter = e.target.value;
