@@ -44,7 +44,7 @@
               class="block px-6 py-2 font-bold rounded fas fa-sign-out-alt"
               role="menuitem"
               >Logout</a
-            >
+              >
           </div>
         </div>
       </div>
