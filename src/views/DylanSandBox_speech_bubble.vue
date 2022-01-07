@@ -1,6 +1,7 @@
 <template>
     <div class="box sb1">I'm speech bubble</div>
-    <div class="box sb2">I'm speech bubble</div>
+    <div class="box sb2">I'm speech bubble</div>  
+    
 </template>
 
 <script setup>
@@ -83,6 +84,4 @@ const content = ref(`
   right: 19px;
   bottom: -19px;
 }
-
-
 </style>

@@ -2,20 +2,22 @@
   <div class="card-layout h-full">
     <messages-card>
       <div class="header">
-        <speech-bubble
-          v-for="userMessage in userMessages"
-          :key="userMessage.id"
-          bubbleStyle="sb1"
-          bubbleColour="#00bfb6"
-          >{{ userMessage.content }}</speech-bubble
-        >
+        <img class="inline object-cover w-12 h-12 mr-20 mt-10 rounded-full float-right" src="https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Profile image"/>
+          <speech-bubble
+            v-for="userMessage in userMessages"
+            :key="userMessage.id"
+            bubbleStyle="sb1"
+            bubbleColour="#00bfb6"
+            >{{ userMessage.content }}</speech-bubble
+          >
+        
+        <img class="inline-block h-10 w-10 ml-20 rounded-full float-left" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
         <speech-bubble
           v-for="userMessage in userMessages"
           :key="userMessage.id"
           bubbleStyle="sb2"
           bubbleColour="#D3D3D3"
-          >{{ userMessage.content }}</speech-bubble
-        >
+          >{{ userMessage.content }}</speech-bubble>
       </div>
       <div class="footer">
         <div class="input-message flex">
@@ -30,8 +32,14 @@
           <div class="home-page">
             <textarea-emoji-picker @input="handleEmojiClicked" />
           </div>
-          <base-button @click="sendMessage('Christie', message)" class="h-14 w-14">
-            <i style="color: white" class="h-3 m-2 fas fa-paper-plane fa-3x"></i>
+          <base-button
+            @click="sendMessage('Christie', message)"
+            class="h-14 w-14"
+          >
+            <i
+              style="color: white"
+              class="h-3 m-2 fas fa-paper-plane fa-3x"
+            ></i>
           </base-button>
         </div>
       </div>
@@ -102,7 +110,7 @@ function handleEmojiClicked({ native }) {
 
 .header {
   grid-area: header;
-  background-color: #5f9ea0;
+  background-color: #DDECF2;
   margin-bottom: 5px;
   margin-left: 10px;
   margin-right: 10px;

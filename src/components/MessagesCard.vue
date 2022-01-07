@@ -21,11 +21,18 @@
             aria-orientation="vertical"
             aria-labelledby="user-menu"
           >
+          <a
+              href="#"
+              class="block px-6 py-2 mb-2 font-bold rounded fas fa-home"
+              role="menuitem"
+              >
+              Home</a
+            > 
             <a
               href="#"
               class="block px-6 py-2 mb-2 font-bold rounded fas fa-user"
               role="menuitem"
-              >My profile</a
+              >My Profile</a
             >
             <a
               href="#"
@@ -37,13 +44,13 @@
               href="#"
               class="block px-6 py-2 mb-2 font-bold rounded fas fa-envelope"
               role="menuitem"
-              >Inbox</a
+              >Messages</a
             >
             <a
               href="#"
               class="block px-6 py-2 font-bold rounded fas fa-sign-out-alt"
               role="menuitem"
-              >Logout</a
+              >Sign Out</a
               >
           </div>
         </div>
@@ -79,5 +86,10 @@
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   transition-duration: 100ms;
   opacity: 1;
+}
+
+.fa-home {
+    display: block;
+margin-right: 15px; 
 }
 </style>
