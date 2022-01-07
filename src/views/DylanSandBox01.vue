@@ -1,132 +1,57 @@
+<!-- This example requires Tailwind CSS v2.0+ -->
 <template>
-  <div class="card-layout h-full">
-    <messages-card>
-      <div class="header">
-        <speech-bubble
-          v-for="userMessage in userMessages"
-          :key="userMessage.id"
-          bubbleStyle="sb1"
-          bubbleColour="#00bfb6"
-          >{{ userMessage.content }}</speech-bubble
-        >
-        <speech-bubble
-          v-for="userMessage in userMessages"
-          :key="userMessage.id"
-          bubbleStyle="sb2"
-          bubbleColour="#D3D3D3"
-          >{{ userMessage.content }}</speech-bubble
-        >
-      </div>
-      <div class="footer">
-        <div class="input-message flex">
-          <div class="input m-2 h-10">
-            <input
-              v-model="message"
-              style="background-color: #d3d3d3"
-              class="shadow-sm h-14 p-2 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"
-              placeholder="Your message here"
-            />
+  <Popover class="relative" v-slot="{ open }">
+    <PopoverButton :class="[open ? 'text-gray-900' : 'text-gray-500', 'group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500']">
+      <span>Solutions</span>
+      <!-- <ChevronDownIcon :class="[open ? 'text-gray-600' : 'text-gray-400', 'ml-2 h-5 w-5 group-hover:text-gray-500']" aria-hidden="true" /> -->
+    </PopoverButton>
+
+    <transition enter-active-class="transition ease-out duration-200" enter-from-class="opacity-0 translate-y-1" enter-to-class="opacity-100 translate-y-0" leave-active-class="transition ease-in duration-150" leave-from-class="opacity-100 translate-y-0" leave-to-class="opacity-0 translate-y-1">
+      <PopoverPanel class="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-xs sm:px-0">
+        <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+          <div class="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+            <a v-for="item in solutions" :key="item.name" :href="item.href" class="-m-3 p-3 block rounded-md hover:bg-gray-50 transition ease-in-out duration-150">
+              <p class="text-base font-medium text-gray-900">
+                {{ item.name }}
+              </p>
+              <p class="mt-1 text-sm text-gray-500">
+                {{ item.description }}
+              </p>
+            </a>
           </div>
-          <div class="home-page">
-            <textarea-emoji-picker @input="handleEmojiClicked" />
-          </div>
-          <base-button @click="sendMessage('Christie', message)" class="h-14 w-14">
-            <i style="color: white" class="h-3 m-2 fas fa-paper-plane fa-3x"></i>
-          </base-button>
         </div>
-      </div>
-    </messages-card>
-  </div>
+      </PopoverPanel>
+    </transition>
+  </Popover>
 </template>
 
-<script setup>
-/** For more on fontawesome icons see: https://fontawesome.com/v5.15/icons?d=gallery&p=2 */
-import { onMounted, ref, watch } from "vue";
-import SpeechBubble from "@/components/shared/SpeechBubble.vue";
-import MessagesCard from "@/components/MessagesCard.vue";
-import TextareaEmojiPicker from "@/components/TextareaEmojiPicker";
+<script>
+import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
+import { ChevronDownIcon } from '@vue-hero-icons/solid'
 
-import { createMessage, watchMessages, deleteAllMessages } from "@/api.js";
+const solutions = [
+  { name: 'Blog', description: 'Learn about tips, product updates and company culture.', href: '#' },
+  {
+    name: 'Help Center',
+    description: 'Get all of your questions answered in our forums of contact support.',
+    href: '#',
+  },
+  { name: 'Guides', description: 'Learn how to maximize our platform to get the most out of it.', href: '#' },
+  { name: 'Events', description: 'Check out webinars with experts and learn about our annual conference.', href: '#' },
+  { name: 'Security', description: 'Understand how we take your privacy seriously.', href: '#' },
+]
 
-const message = ref(null);
-watch(message, (newVal) => {
-  console.log(
-    "🚀 ~ file: ChristieSandbox.vue ~ line 17 ~ watch ~ newVal",
-    newVal
-  );
-});
-
-const userMessages = ref([]);
-let count = 0;
-watchMessages(userMessages);
-
-function sendMessage(user, message) {
-  console.log("dvdb - sendMessage - message", message);
-  createMessage({ message, user });
-}
-
-function handleEmojiClicked({ native }) {
-  message.value += native;
+export default {
+  components: {
+    Popover,
+    PopoverButton,
+    PopoverPanel,
+    // ChevronDownIcon,
+  },
+  setup() {
+    return {
+      solutions,
+    }
+  },
 }
 </script>
-
-<style>
-.card-layout {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.speech-bubbles {
-  height: 80%;
-  border: 2px dotted blue;
-}
-
-.input-message {
-  /* border: 2px dotted green; */
-  float: left;
-  /* background-color: orange; */
-}
-
-.home-page {
-  /* padding-top: 50px; */
-  position: absolute;
-  margin-left: 100px;
-}
-
-.textarea-emoji-picker {
-  position: relative;
-  width: 100px;
-  margin: 0 auto;
-}
-
-.header {
-  grid-area: header;
-  background-color: #5f9ea0;
-  margin-bottom: 5px;
-  margin-left: 10px;
-  margin-right: 10px;
-  /* border: 4px dotted blue; */
-  height: 400px;
-  overflow-y: scroll;
-}
-
-.main {
-  grid-area: main;
-  background-color: #fff;
-  border: 2px dotted pink;
-}
-.sidebar {
-  grid-area: sidebar;
-}
-.footer {
-  grid-area: footer;
-}
-
-.grid {
-  grid-template-rows: calc(100% - 42px) 42px;
-  grid-template-areas:
-    "header header header header"
-    "footer footer footer footer";
-}
-</style>
