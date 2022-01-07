@@ -30,8 +30,8 @@
           <div class="home-page">
             <textarea-emoji-picker @input="handleEmojiClicked" />
           </div>
-          <base-button @click="sendMessage('Christie', message)">
-            <i style="color: white" class="h-4 fas fa-paper-plane fa-3x"></i>
+          <base-button @click="sendMessage('Christie', message)" class="h-14 w-14">
+            <i style="color: white" class="h-3 m-2 fas fa-paper-plane fa-3x"></i>
           </base-button>
         </div>
       </div>
@@ -89,7 +89,9 @@ function handleEmojiClicked({ native }) {
 }
 
 .home-page {
-  padding-top: 50px;
+  /* padding-top: 50px; */
+  position: absolute;
+  margin-left: 100px;
 }
 
 .textarea-emoji-picker {
