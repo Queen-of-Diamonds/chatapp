@@ -1,11 +1,11 @@
 <template>
-  <div class="w-full max-w-sm px-4 fixed top-16">
-    <Popover v-slot="{ open }" class="relative">
+  <div class="screen-wrapper flex max-w-sm px-4 fixed top-16">
+    <Popover v-slot="{ open }" class="relative inline-flex">
       <PopoverButton
         :class="open ? '' : 'text-opacity-90'"
-        class="inline-flex items-center px-3 py-2 text-base font-medium text-white bg-orange-700 rounded-md group hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+        class="inline-flex items-center pr-3 py-2 text-base font-medium text-black bg-orange-700 rounded-md group hover:text-opacity-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
       >
-        <span>Solutions</span>
+        <span color="black">Solutions</span>
         <ChevronDownIcon
           :class="open ? '' : 'text-opacity-70'"
           class="w-5 h-5 ml-2 text-orange-300 transition duration-150 ease-in-out group-hover:text-opacity-80"
@@ -22,7 +22,7 @@
         leave-to-class="translate-y-1 opacity-0"
       >
         <PopoverPanel
-          class="absolute z-10 w-screen max-w-sm px-4 mt-3 transform -translate-x-1/2 left-1/2 sm:px-0 lg:max-w-3xl"
+          class="absolute z-10 w-screen max-w-sm px-4 mt-8  sm:px-0 lg:max-w-3xl"
         >
           <div
             class="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5"
@@ -73,14 +73,16 @@
 
 <script>
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/vue'
+// Tailwind preferred icon-set: https://vue-hero-icons.netlify.app/
 import { ChevronDownIcon } from '@heroicons/vue/solid'
+
+import { ref } from "vue"
 
 export default {
   components: { Popover, PopoverButton, PopoverPanel, ChevronDownIcon },
-
   setup() {
-    return {
-      solutions: [
+    const open = ref(true)
+    const solutions = ref([
         {
           name: 'Insights',
           description: 'Measure actions your users take',
@@ -167,8 +169,22 @@ export default {
             </svg>
           `,
         },
-      ],
+      ])
+    return {
+      solutions,
+      open
     }
   },
 }
 </script>
+
+<style>
+.screen-wrapper {
+  width: 1vw;
+  height: 1vh;
+  margin: 0;
+}
+
+/* absolute z-10 w-screen max-w-sm px-4 mt-3 
+transform -translate-x-1/2 left-1/2 sm:px-0 lg:max-w-3xl */
+</style>
