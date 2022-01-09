@@ -3,6 +3,7 @@ import Home from "@/views/Home.vue";
 import DylanSandBox01 from "@/views/DylanSandBox01.vue";
 import Conversation from "@/views/Conversation.vue";
 import ChristieSandbox from "@/views/ChristieSandbox.vue";
+import VisualProgramming from "@/views/VisualProgramming.vue";
 
 const routes = [
   {
@@ -11,6 +12,11 @@ const routes = [
     component: Home,
     iconClass: "fas fa-home",
     mainMenu: true,
+  },
+  {
+    path: "/code-art",
+    name: "Code Art",
+    component: VisualProgramming,
   },
   {
     path: "/dylan-sandbox",
