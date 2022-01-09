@@ -1,8 +1,8 @@
 <template>
-  <div class="container border">
+  <div class="radar-container border">
     <div class="d-flex justify-content-center" id="p5Canvas"></div>
     <div class="message d-flex justify-content-center">
-      {{message}}
+      {{ message }}
     </div>
   </div>
 </template>
@@ -14,12 +14,11 @@ if (process.browser) {
 }
 
 const message = ref("");
-onMounted(() => {
-  const P5 = require("p5");
-  new P5(radar.main);
+const P5 = require("p5");
+new P5(radar.main, 'radar-container');
+// new p5(sketch, 'container')
 
-  radar.setDelegate(callbackOnP5);
-});
+radar.setDelegate(callbackOnP5);
 
 function callbackOnP5(timeStr) {
   message.value = timeStr;
