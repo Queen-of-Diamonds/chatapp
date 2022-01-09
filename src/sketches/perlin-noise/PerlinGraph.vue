@@ -8,12 +8,8 @@ if (process.browser) {
   var perlin = require("./perlinGraph");
 }
 
-
-onMounted(() => {
-  const P5 = require("p5");
-  new P5(perlin.main, 'perlin-graph');
-});
-
+const P5 = require("p5");
+new P5(perlin.main, "perlin-graph");
 </script>
 
 <style lang="scss" scoped></style>
