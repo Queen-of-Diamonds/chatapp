@@ -57,7 +57,7 @@
 
 <script setup>
 // TODO @Christie: refactor into script setup pattern.
-// import { MailIcon, PhoneIcon } from '@vue-hero-icons/solid'
+import { MailIcon, PhoneIcon } from '@heroicons/vue/solid'
 </script>
 
 <style>
