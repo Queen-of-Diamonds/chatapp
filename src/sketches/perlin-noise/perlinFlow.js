@@ -38,10 +38,8 @@ export function main(_p5) {
       for (var x = 0; x < cols; x++) {
         var index = x + y * cols;
         var angle = p5.noise(xoff, yoff, zoff) * p5.TWO_PI * 4;
-        console.log("dvdb - main - p5", p5);
         // https://stackoverflow.com/a/67832458
         var v = p5.constructor.Vector.fromAngle(angle);
-        debugger;
         v.setMag(1);
         flowfield[index] = v;
         xoff += inc;
