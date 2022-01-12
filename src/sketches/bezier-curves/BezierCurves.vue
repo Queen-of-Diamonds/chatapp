@@ -5,7 +5,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 if (process.browser) {
-  var bezier = require("./bezier");
+  var bezier = require("./bezierCurves");
 }
 
 const P5 = require("p5");
