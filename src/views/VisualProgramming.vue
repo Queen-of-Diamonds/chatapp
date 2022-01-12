@@ -4,6 +4,7 @@
     <Radar />
     <PerlinGraph />
     <PerlinFlow></PerlinFlow>
+    <Clock/>
 
 </template>
 
@@ -13,6 +14,7 @@ import Radar from "@/sketches/radar/Radar.vue";
 import PerlinGraph from "@/sketches/perlin-noise/PerlinGraph.vue";
 import PerlinFlow from "@/sketches/perlin-noise/PerlinFlow.vue";
 import BezierCurves from "@/sketches/bezier-curves/BezierCurves.vue";
+import Clock from "@/sketches/clock/Clock.vue";
 </script>
 
 <style scoped>
