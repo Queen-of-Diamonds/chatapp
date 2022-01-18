@@ -18,7 +18,7 @@ var flowfield;
 export function main(_p5) {
   p5 = _p5;
   p5.setup = (_) => {
-    p5.createCanvas(600, 400);
+    p5.createCanvas(500, 500);
     cols = p5.floor(p5.width / scl);
     rows = p5.floor(p5.height / scl);
     fr = p5.createP("");

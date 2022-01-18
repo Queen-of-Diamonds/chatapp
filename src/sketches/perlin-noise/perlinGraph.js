@@ -17,27 +17,27 @@ let start = 0;
 
 export function main(_p5) {
   p5 = _p5;
-  let { setup, draw, background, stroke, strokeWeight, createCanvas, noFill, beginShape, noise, vertex, endShape, width, height  } = p5;
-  setup = (_) => {
-    const canvas = createCanvas(400, 400);
+  
+  p5.setup = (_) => {
+    const canvas = p5.createCanvas(500, 500);
   };
 
-  draw = (_) => {
-    background(51);
+  p5.draw = (_) => {
+    p5.background(51);
 
-    stroke(255);
-    noFill();
-    beginShape();
+    p5.stroke(255);
+    p5.noFill();
+    p5.beginShape();
     let xoff = start;
-    for (let x = 0; x < width; x++) {
-      stroke(255);
+    for (let x = 0; x < p5.width; x++) {
+      p5.stroke(255);
       // let y = random(height);
-      let y = noise(xoff) * height;
+      let y = p5.noise(xoff) * p5.height;
       p5.vertex(x, y);
 
       xoff += inc;
     }
-    endShape();
+    p5.endShape();
 
     start += inc;
 
