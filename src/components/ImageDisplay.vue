@@ -19,5 +19,10 @@
   flex-grow: 1;
   min-width: 430px;
   padding: 30px;
+  font-weight: bold;
+}
+
+.text {
+  font-weight: normal;
 }
 </style>
