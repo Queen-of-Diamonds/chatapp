@@ -7,7 +7,7 @@ export function main(_p5) {
   p5 = _p5;
   
   p5.setup = (_) => {
-    p5.createCanvas(600, 600);
+    p5.createCanvas(500, 500);
     p0 = new Particle(0, 300, p5);
     p1 = new Particle(300, 0, p5);
     p2 = new Particle(400, 0, p5);

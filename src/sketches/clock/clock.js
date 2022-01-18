@@ -4,7 +4,7 @@ export function main(_p5) {
     p5 = _p5;
 
 p5.setup = (_) => {
-    p5.createCanvas(600, 600);
+    p5.createCanvas(500, 500);
     p5.angleMode(p5.DEGREES);
   }
   
@@ -12,7 +12,7 @@ p5.setup = (_) => {
     p5.background(0);
     p5.translate(200, 200);
     p5.rotate(-90);
-    
+
     let hr = p5.hour();
     let mn = p5.minute();
     let sc = p5.second();
