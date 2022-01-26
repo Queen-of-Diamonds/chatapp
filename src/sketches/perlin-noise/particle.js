@@ -2,12 +2,13 @@
 // http://codingtra.in
 // http://patreon.com/codingtrain
 // Code for: https://youtu.be/BjoM9oKOAKY
+let p5;
 
 export default class Particle {
   constructor() {
-    this.pos = createVector(random(width), random(height));
-    this.vel = createVector(0, 0);
-    this.acc = createVector(0, 0);
+    this.pos = p5.createVector(p5.random(p5.width), p5.random(p5.height));
+    this.vel = p5.createVector(0, 0);
+    this.acc = p5.createVector(0, 0);
     this.maxspeed = 4;
     this.prevPos = this.pos.copy();
   }
@@ -20,9 +21,9 @@ export default class Particle {
   }
 
   follow(vectors) {
-    var x = floor(this.pos.x / scl);
-    var y = floor(this.pos.y / scl);
-    var index = x + y * cols;
+    var x = p5.floor(this.pos.x / p5.scl);
+    var y = p5.floor(this.pos.y / p5.scl);
+    var index = x + y * p5.cols;
     var force = vectors[index];
     this.applyForce(force);
   }
@@ -32,9 +33,9 @@ export default class Particle {
   }
 
   show() {
-    stroke(255, 10);
-    strokeWeight(1);
-    line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
+    p5.stroke(255, 10);
+    p5.strokeWeight(1);
+    p5.line(this.pos.x, this.pos.y, this.prevPos.x, this.prevPos.y);
     this.updatePrev();
   }
 
@@ -44,20 +45,20 @@ export default class Particle {
   }
 
   edges() {
-    if (this.pos.x > width) {
+    if (this.pos.x > p5.width) {
       this.pos.x = 0;
       this.updatePrev();
     }
     if (this.pos.x < 0) {
-      this.pos.x = width;
+      this.pos.x = p5.width;
       this.updatePrev();
     }
-    if (this.pos.y > height) {
+    if (this.pos.y > p5.height) {
       this.pos.y = 0;
       this.updatePrev();
     }
     if (this.pos.y < 0) {
-      this.pos.y = height;
+      this.pos.y = p5.height;
       this.updatePrev();
     }
   }
