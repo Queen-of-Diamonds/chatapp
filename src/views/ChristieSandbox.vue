@@ -83,15 +83,12 @@ import PerlinFlow from "@/sketches/perlin-noise/PerlinFlow.vue";
 /* a:link {
   color: #0000FF;
 }
-
 a:visited {
   color: #808080;
 }
-
 a:hover {
   color: #0000FF;
 }
-
 a:active {
   color: #0b1e86;
 } */
