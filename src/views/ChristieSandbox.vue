@@ -69,6 +69,23 @@
       </div>
     </div></ImageDisplay
   >
+
+    <ImageDisplay>
+    <MandelbrotSet />
+    <div class="p5-description">
+      Mandelbrot Set
+      <div class="text">
+        text goes here
+        <b
+          ><a
+            href="https://www.youtube.com/watch?v=6z7GQewK-Ks"
+            target="_blank"
+            class="font-medium text-indigo-600 hover:text-indigo-500"
+            >Click here</a
+          ></b>
+      </div>
+    </div></ImageDisplay
+  >
 </template>
 
 <script setup>
@@ -77,6 +94,7 @@ import Clock from "@/sketches/clock/Clock.vue";
 import BezierCurves from "@/sketches/bezier-curves/BezierCurves.vue";
 import PerlinGraph from "@/sketches/perlin-noise/PerlinGraph.vue";
 import PerlinFlow from "@/sketches/perlin-noise/PerlinFlow.vue";
+import MandelbrotSet from "@/sketches/mandelbrot-set/MandelbrotSet.vue";
 </script>
 
 <style>
