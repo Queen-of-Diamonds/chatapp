@@ -7,6 +7,7 @@
     <PerlinGraph />
     <PerlinFlow></PerlinFlow>
     <Clock />
+    <MandelbrotSet></MandelbrotSet>
     </div>
   </div>
 </template>
@@ -18,6 +19,7 @@ import PerlinGraph from "@/sketches/perlin-noise/PerlinGraph.vue";
 import PerlinFlow from "@/sketches/perlin-noise/PerlinFlow.vue";
 import BezierCurves from "@/sketches/bezier-curves/BezierCurves.vue";
 import Clock from "@/sketches/clock/Clock.vue";
+import MandelbrotSet from "@/sketches/mandelbrot-set/MandelbrotSet.vue";
 </script>
 
 <style scoped>
