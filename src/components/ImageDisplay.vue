@@ -7,21 +7,20 @@
 
 <style scoped>
 .row {
-  display: flex;
+   display: flex;
   flex-flow: row wrap;
   width: 100%;
-  margin-top: 20px;
+  padding: 10px;
 }
 </style>
 
 <style>
 .p5-description {
   flex-grow: 1;
-  min-width: 430px;
-  padding: 30px;
+  min-width: 230px;
   font-weight: bold;
+  padding: 10px;
 }
-
 .text {
   font-weight: normal;
 }
