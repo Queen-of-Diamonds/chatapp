@@ -10,7 +10,7 @@ export function main(_p5) {
   p5 = _p5;
 
   p5.setup = (_) => {
-    p5.createCanvas(200, 200);
+    p5.createCanvas(500, 500);
     p5.pixelDensity(1);
 
     minSlider = p5.createSlider(-2.5, 0, -2.5, 0.01);
@@ -18,7 +18,7 @@ export function main(_p5) {
   };
 
   p5.draw = (_) => {
-    var maxiterations = 100;
+    var maxiterations = 50;
 
     p5.loadPixels();
     for (var x = 0; x < p5.width; x++) {
