@@ -20,8 +20,8 @@
                 ></b
               >
             </div>
-          </div></ImageDisplay
-        >
+          </div>
+          </ImageDisplay>
       </li>
       <li>
         <ImageDisplay>
@@ -40,8 +40,8 @@
                 ></b
               >
             </div>
-          </div></ImageDisplay
-        >
+          </div>
+          </ImageDisplay>
       </li>
       <li>
         <ImageDisplay>
@@ -60,8 +60,8 @@
                 ></b
               >
             </div>
-          </div></ImageDisplay
-        >
+          </div>
+          </ImageDisplay>
       </li>
       <li>
         <ImageDisplay>
@@ -80,8 +80,8 @@
                 ></b
               >
             </div>
-          </div></ImageDisplay
-        >
+          </div>
+          </ImageDisplay>
       </li>
       <li>
         <ImageDisplay>
@@ -100,8 +100,8 @@
                 ></b
               >
             </div>
-          </div></ImageDisplay
-        >
+          </div>
+          </ImageDisplay>
       </li>
       <li>
         <ImageDisplay>
@@ -119,8 +119,8 @@
                 ></b
               >
             </div>
-          </div></ImageDisplay
-        >
+          </div>
+          </ImageDisplay>
       </li>
     </ul>
   </div>
