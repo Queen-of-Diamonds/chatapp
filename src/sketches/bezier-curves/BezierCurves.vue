@@ -15,6 +15,6 @@ new P5(bezier.main, "bezier-curves");
 <style scoped>
 #bezier-curves {
   height: 100%;
-  border: 2px dotted blue;
+  /* border: 2px dotted blue; */
 }
 </style>

@@ -10,6 +10,6 @@
 
 <style>
 #app {
-    height: 400vh;
+    height: 500vh;
 }
 </style>
