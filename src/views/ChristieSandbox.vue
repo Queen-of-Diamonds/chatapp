@@ -128,6 +128,7 @@
 
 <script setup>
 import ImageDisplay from "@/components/ImageDisplay.vue";
+import Header from "@/components/Header.vue";
 import Clock from "@/sketches/clock/Clock.vue";
 import BezierCurves from "@/sketches/bezier-curves/BezierCurves.vue";
 import PerlinGraph from "@/sketches/perlin-noise/PerlinGraph.vue";

@@ -18,7 +18,7 @@ export function main(_p5) {
   };
 
   p5.draw = (_) => {
-    var maxiterations = 100;
+    var maxiterations = 50;
 
     p5.loadPixels();
     for (var x = 0; x < p5.width; x++) {
