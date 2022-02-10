@@ -1,8 +1,7 @@
 <template>
-  <Header></Header>
+    <Header></Header>
   <div
-    class="bg-white border m-auto max-w-8xl border-gray-300 overflow-hidden rounded-md shadow-2xl"
-  >
+    class="bg-white border m-auto max-w-8xl border-gray-300 overflow-hidden rounded-md shadow-2xl">
     <ul role="list" class="divide-y divide-gray-300">
       <li>
         <ImageDisplay>
@@ -22,7 +21,7 @@
               >
             </div>
           </div>
-        </ImageDisplay>
+          </ImageDisplay>
       </li>
       <li>
         <ImageDisplay>
@@ -42,7 +41,7 @@
               >
             </div>
           </div>
-        </ImageDisplay>
+          </ImageDisplay>
       </li>
       <li>
         <ImageDisplay>
@@ -62,7 +61,7 @@
               >
             </div>
           </div>
-        </ImageDisplay>
+          </ImageDisplay>
       </li>
       <li>
         <ImageDisplay>
@@ -82,7 +81,7 @@
               >
             </div>
           </div>
-        </ImageDisplay>
+          </ImageDisplay>
       </li>
       <li>
         <ImageDisplay>
@@ -90,9 +89,8 @@
           <div class="p5-description">
             Mandelbrot Set
             <div class="text">
-              Mandelbrot set is a type of shape known as a fractal. This
-              design show you how to incorporates programming, pixels and
-              arrays.
+              Mandelbrot set is a type of shape known as a fractal. This design
+              show you how to incorporates programming, pixels and arrays.
               <b
                 ><a
                   href="https://www.youtube.com/watch?v=6z7GQewK-Ks"
@@ -103,7 +101,26 @@
               >
             </div>
           </div>
-        </ImageDisplay>
+          </ImageDisplay>
+      </li>
+      <li>
+        <ImageDisplay>
+          <FractalTree />
+          <div class="p5-description">
+            Fractal Tree
+            <div class="text">
+              This design uses recursion to create each branch of the tree which creates the fractal pattern.
+              <b
+                ><a
+                  href="https://www.youtube.com/watch?v=0jjeOYMjmDU"
+                  target="_blank"
+                  class="font-medium text-indigo-600 hover:text-indigo-500"
+                  >Click here</a
+                ></b
+              >
+            </div>
+          </div>
+          </ImageDisplay>
       </li>
     </ul>
   </div>
@@ -117,6 +134,7 @@ import BezierCurves from "@/sketches/bezier-curves/BezierCurves.vue";
 import PerlinGraph from "@/sketches/perlin-noise/PerlinGraph.vue";
 import PerlinFlow from "@/sketches/perlin-noise/PerlinFlow.vue";
 import MandelbrotSet from "@/sketches/mandelbrot-set/MandelbrotSet.vue";
+import FractalTree from "@/sketches/fractal-tree/FractalTree.vue";
 </script>
 
 <style>

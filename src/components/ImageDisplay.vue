@@ -21,7 +21,6 @@
   font-weight: bold;
   padding: 10px;
 }
-
 .text {
   font-weight: normal;
 }
